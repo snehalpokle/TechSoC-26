@@ -103,10 +103,12 @@ class Duel{
                 attacker.speed<<" VS "<<defender.speed<<")\n";
                 std::cout<<attacker.name<<" used "<<attacker.move[j].name<<"!!\n";
                 check_effectiveness();
-                defender.hp-=calculate_damage(j);
+                double damage=calculate_damage(j);//creating this or else a function that gives random
+                //values would be called twice on lines 108 & 111 and different values would be obtained then 
+                defender.hp-=damage;
                 if(defender.hp<=0)
                 defender.hp=0;
-                std::cout<<defender.name<<" took "<<calculate_damage(j)<< " damages!!\n"
+                std::cout<<defender.name<<" took "<<damage<< " damages!!\n"
                 <<defender.name<<" HP:"<<defender.hp<<"/"<<defender.hpOrg<<"\n";
                 if(defender.hp==0){
                     std::cout<<"\n"<<defender.name<<" fainted!!!\n"
